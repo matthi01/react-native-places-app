@@ -1,17 +1,22 @@
 import React from 'react';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, FlatList, TouchableOpacity, ScrollView} from 'react-native';
 
 import ListItem from '../ListItem/ListItem';
 
-const PlaceList = (props) => {
-    const placesOutput = props.places.map((place, i) => (
-        <ListItem key={i} placeName={place} onItemPressed={() => props.onItemDeleted(i) } />
-    ));
-    
+const placeList = (props) => {
+
     return (
-        <View style={styles.listContainer}>
-            {placesOutput}
-        </View>
+        <FlatList 
+            style={styles.listContainer}
+            data={props.places}
+            renderItem={(info) => (
+                <ListItem 
+                    placeName={info.item.name} 
+                    placeImage={info.item.image}
+                    onItemPressed={() => props.onItemSelected(info.item.key) } 
+                />
+            )} 
+        />
     );
 };
 
@@ -21,4 +26,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default PlaceList;
+export default placeList;
