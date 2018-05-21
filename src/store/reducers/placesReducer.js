@@ -3,8 +3,7 @@ import * as actionTypes from "../actions/actionTypes";
 import placeImage from "../../../src/assets/image1.jpg";
 
 const initialState = {
-  places: [],
-  selectedPlace: null
+  places: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -24,8 +23,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         places: state.places.filter(
           place => place.key !== state.selectedPlace.key
-        ),
-        selectedPlace: null
+        )
       };
 
     default:
