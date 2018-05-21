@@ -1,1 +1,1 @@
-export {addPlace, deletePlace, selectPlace, deselectPlace} from './placesActions';
+export { addPlace, deletePlace } from "./placesActions";

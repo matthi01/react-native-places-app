@@ -1,19 +1,31 @@
 import { Navigation } from "react-native-navigation";
+import Icon from "react-native-vector-icons/Ionicons";
+
+// to use the icons, need to use a helper class (Icon.getImageSource)
+// ...its an async call, returns a promise, but Icon does not accept promises... do it in the then block
 
 const startTabs = () => {
-  Navigation.startTabBasedApp({
-    tabs: [
-      {
-        screen: "awesomeplaces.FindPlaceScreen",
-        label: "Find Place",
-        title: "Find Place"
-      },
-      {
-        screen: "awesomeplaces.SharePlaceScreen",
-        label: "Share Place",
-        title: "Share Place"
-      }
-    ]
+  //promise takes an array of promises and waits for all of them to finish
+  Promise.all([
+    Icon.getImageSource("md-map", 30),
+    Icon.getImageSource("ios-share-alt", 30)
+  ]).then(sources => {
+    Navigation.startTabBasedApp({
+      tabs: [
+        {
+          screen: "awesomeplaces.FindPlaceScreen",
+          label: "Find Place",
+          title: "Find Place",
+          icon: sources[0]
+        },
+        {
+          screen: "awesomeplaces.SharePlaceScreen",
+          label: "Share Place",
+          title: "Share Place",
+          icon: sources[1]
+        }
+      ]
+    });
   });
 };
 

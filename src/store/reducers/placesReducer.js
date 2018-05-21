@@ -1,46 +1,36 @@
-import * as actionTypes from '../actions/actionTypes';
+import * as actionTypes from "../actions/actionTypes";
 
-import placeImage from '../../../src/assets/image1.jpg';
+import placeImage from "../../../src/assets/image1.jpg";
 
 const initialState = {
-    places: [],
-    selectedPlace: null
+  places: [],
+  selectedPlace: null
 };
 
 const reducer = (state = initialState, action) => {
-    switch(action.type) {
-        case actionTypes.ADD_PLACE:
-            return {
-                ...state,
-                places: state.places.concat({
-                    key: Math.random().toString(), 
-                    name: action.placeName,
-                    image: placeImage
-                })
-            };
+  switch (action.type) {
+    case actionTypes.ADD_PLACE:
+      return {
+        ...state,
+        places: state.places.concat({
+          key: Math.random().toString(),
+          name: action.placeName,
+          image: placeImage
+        })
+      };
 
-        case actionTypes.DELETE_PLACE:
-            return {
-                ...state,
-                places: state.places.filter((place) => place.key !== state.selectedPlace.key),
-                selectedPlace: null
-            };
+    case actionTypes.DELETE_PLACE:
+      return {
+        ...state,
+        places: state.places.filter(
+          place => place.key !== state.selectedPlace.key
+        ),
+        selectedPlace: null
+      };
 
-        case actionTypes.SELECT_PLACE:
-            return {
-                ...state,
-                selectedPlace: state.places.find((place) => place.key === action.placeKey)
-            }
-
-        case actionTypes.DESELECT_PLACE:
-            return {
-                ...state,
-                selectedPlace: null
-            }
-
-        default:
-            return state;
-    }
+    default:
+      return state;
+  }
 };
 
 export default reducer;
