@@ -15,6 +15,7 @@ import { deletePlace } from "../../store/actions/index";
 class PlaceDetail extends Component {
     placeDeletedHandler = () => {
         this.props.onDeletePlace(this.props.selectedPlace.key);
+        // you get the property navigator from react navigation
         this.props.navigator.pop();
     };
 
