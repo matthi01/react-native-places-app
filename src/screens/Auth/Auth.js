@@ -62,14 +62,32 @@ class AuthScreen extends Component {
                             placeholder="Email Address"
                             style={styles.input}
                         />
-                        <View style={this.state.viewMode === "portrait" ? styles.portraitPasswordContainer : styles.landscapePasswordContainer}>
-                            <View style={this.state.viewMode === "portrait" ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
+                        <View
+                            style={
+                                this.state.viewMode === "portrait"
+                                    ? styles.portraitPasswordContainer
+                                    : styles.landscapePasswordContainer
+                            }
+                        >
+                            <View
+                                style={
+                                    this.state.viewMode === "portrait"
+                                        ? styles.portraitPasswordWrapper
+                                        : styles.landscapePasswordWrapper
+                                }
+                            >
                                 <DefaultInput
                                     placeholder="Password"
                                     style={styles.input}
                                 />
                             </View>
-                            <View style={this.state.viewMode === "portrait" ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
+                            <View
+                                style={
+                                    this.state.viewMode === "portrait"
+                                        ? styles.portraitPasswordWrapper
+                                        : styles.landscapePasswordWrapper
+                                }
+                            >
                                 <DefaultInput
                                     placeholder="Confirm Password"
                                     style={styles.input}
@@ -109,7 +127,7 @@ const styles = StyleSheet.create({
     landscapePasswordContainer: {
         flexDirection: "row",
         justifyContent: "space-between"
-    },,
+    },
     portraitPasswordContainer: {
         flexDirection: "column",
         justifyContent: "flex-start"
