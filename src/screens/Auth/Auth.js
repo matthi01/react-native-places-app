@@ -18,7 +18,7 @@ import backgroundImage from "../../assets/background.jpg";
 class AuthScreen extends Component {
     state = {
         viewMode:
-            Dimensions.get("window").height > 500 ? "landscape" : "portrait"
+            Dimensions.get("window").height > 500 ? "portrait" : "landscape"
     };
 
     constructor(props) {
@@ -27,8 +27,8 @@ class AuthScreen extends Component {
             this.setState({
                 viewMode:
                     Dimensions.get("window").height > 500
-                        ? "landscape"
-                        : "portrait"
+                        ? "portrait"
+                        : "landscape"
             });
         });
     }
@@ -39,7 +39,7 @@ class AuthScreen extends Component {
 
     render() {
         let headerText = null;
-        if (this.state.viewMode === "landscape") {
+        if (this.state.viewMode === "portrait") {
             headerText = (
                 <MainText>
                     <HeadingText>Please Log In</HeadingText>
